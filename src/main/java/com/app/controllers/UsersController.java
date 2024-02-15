@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UsersController {
-   @Autowired
-   private UserServices userServices;
+    @Autowired
+    private UserServices userServices;
 
-   @GetMapping("/allUsers")
+    @GetMapping("/allUsers")
     public String getAllUsersPage(Model model) {
-       model.addAttribute("users", userServices.getAllUsers());
-       return "allUsers";
-   }
+        model.addAttribute("users", userServices.getAllUsers());
+        return "allUsers";
+    }
 }

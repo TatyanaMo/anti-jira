@@ -15,7 +15,7 @@ public class RegistrationController {
     private UserServices userServices;
 
     @GetMapping("/registration")
-    public String getRegistrationForm (Model model) {
+    public String getRegistrationForm(Model model) {
         model.addAttribute("newUser", new User());
         return "registration";
     }
@@ -26,5 +26,10 @@ public class RegistrationController {
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastName", user.getLastName());
         return "successRegistration";
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "login";
     }
 }

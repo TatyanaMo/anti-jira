@@ -31,14 +31,14 @@ public class UserDAO {
     }
 
     private User mapUser(ResultSet rs) throws SQLException {
-       User user = new User();
+        User user = new User();
 
-       user.setId(rs.getLong("id"));
-       user.setFirstName(rs.getString("first_name"));
-       user.setLastName(rs.getString("last_name"));
-       user.setEmail(rs.getString("email"));
-       user.setPassword(rs.getString("password"));
+        user.setId(rs.getLong("id"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
+        user.setPassword(rs.getString("password"));
 
-       return user;
+        return user;
     }
 }

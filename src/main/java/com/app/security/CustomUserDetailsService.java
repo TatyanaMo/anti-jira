@@ -15,12 +15,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-      List<User> users = userDAO.getUserByEmail(username);
+        List<User> users = userDAO.getUserByEmail(username);
 
-      if (users.isEmpty()) {
-          throw new UsernameNotFoundException("User " + username + " not found");
-      }
+        if (users.isEmpty()) {
+            throw new UsernameNotFoundException("User " + username + " not found");
+        }
 
-      return new CustomUserDetails(users.get(0));
+        return new CustomUserDetails(users.get(0));
     }
 }
