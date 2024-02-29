@@ -1,8 +1,13 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Hello, Kotiki!</title>
+  <meta charset="UTF-8">
+  <title>Anti JIRA</title>
 </head>
 <body>
-  <div>Hello, Kotiki!</div>
+  <div th:each="project : ${projects}">
+    <div th:text="${project.name}"></div>
+  </div>
+  <div><a href="/new-project">Create Project</a></div>
 </body>
 </html>
