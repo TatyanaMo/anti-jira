@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Project</title>
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div th:each="ticket : ${tickets}" class="ticket">
+    <div th:text="${ticket.id}"></div>
+    <div th:text="${ticket.summary}"></div>
+    <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}"></div>
+  </div>
+</body>
+</html>

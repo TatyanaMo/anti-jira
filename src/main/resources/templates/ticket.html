@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <div>Summary:</div>
+  <div th:text="${ticket.summary}"></div>
+  <div>Description:</div>
+  <div th:text="${ticket.description}"></div>
+  <div>Assignee:</div>
+  <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}"></div>
+  <a th:href="'/ticket/edit/' + ${ticket.id}">Edit</a>
+
+  <div onclick="getUsers();">SHOW ALL USERS</div>
+  <div id="user-list"></div>
+
+  <input type="text" id="assignee" placeholder="start typing...">
+  </body>
+</html>

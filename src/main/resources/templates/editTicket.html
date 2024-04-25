@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit ticket</title>
+</head>
+<body>
+  <form th:action="${'/ticket/edit/' + ticket.id}" method="POST" th:object="${ticket}">
+    <div><input type="text" placeholder="Summary" th:field="*{summary}"></div>
+    <div><textarea placeholder="Description" th:field="*{description}"></textarea></div>
+    <div><input type="submit" value="Update ticket!"></div>
+  </form>
+</body>
+</html>

@@ -4,7 +4,8 @@ public class Ticket {
     private long id;
     private String summary;
     private String description;
-    private long reporterId;
+    //private long reporterId;
+    private User user;
     private long projectId;
 
     public long getId() {
@@ -31,12 +32,21 @@ public class Ticket {
         this.description = description;
     }
 
-    public long getReporterId() {
-        return reporterId;
+//    public long getReporterId() {
+//        return reporterId;
+//    }
+//
+//    public void setReporterId(long reporterId) {
+//        this.reporterId = reporterId;
+//    }
+
+
+    public User getUser() {
+        return user;
     }
 
-    public void setReporterId(long reporterId) {
-        this.reporterId = reporterId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getProjectId() {

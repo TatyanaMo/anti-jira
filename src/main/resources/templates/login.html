@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Log in</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form th:action="@{/login}" method="POST">
-  <div><input type="text" name="username" placeholder="Email"></div>
-  <div><input type="password" name="password" placeholder="Password"></div>
-  <div><input type="submit" value="Log-in!"></div>
-</form>
+  <div class="login-form">
+    <form th:action="@{/login}" method="POST">
+      <div><input type="text" name="username" placeholder="Email" class="text-input"></div>
+      <div><input type="password" name="password" placeholder="Password" class="text-input"></div>
+      <div><input type="submit" value="Log-in!" class="button"></div>
+  </form>
+  </div>
 </body>
 </html>

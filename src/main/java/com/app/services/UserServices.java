@@ -25,4 +25,8 @@ public class UserServices {
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
+
+    public List<User> getAllUsersStartingWith(String startsWith) {
+        return userDAO.getAllUsersStartingWith(startsWith);
+    }
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Ticket</title>
+</head>
+<body>
+<form th:action="@{/new-ticket}" method="POST" th:object="${newTicket}">
+  <div>
+    <select th:field="*{projectId}">
+      <option th:each="project : ${projects}" th:value="${project.id}" th:text="${project.name}"></option>
+    </select>
+  </div>
+  <div><input type="text" placeholder="Summary" th:field="*{summary}"></div>
+  <div><textarea placeholder="Description" th:field="*{description}"></textarea></div>
+  <div><input type="submit" value="Create ticket!"></div>
+</form>
+</body>
+</html>
