@@ -36,7 +36,6 @@ public class TicketsController {
     public String showEditTicketForm(@PathVariable("id") long id, Model model) {
         model.addAttribute("ticket", ticketServices.getTicketById(id));
         return "editTicket";
-
     }
 
     @PostMapping("/ticket/edit/{id}")
