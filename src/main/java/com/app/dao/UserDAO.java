@@ -20,6 +20,10 @@ public class UserDAO {
                 user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());
     }
 
+    public void storeUserAvatar(String fileName, long userId) {
+        jdbcTemplate.update("UPDATE users SET avatar_url = ? WHERE id = ?", fileName, userId);
+    }
+
     public List<User> getAllUsers() {
         RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
         return jdbcTemplate.query("SELECT * FROM users", rowMapper);
@@ -28,6 +32,11 @@ public class UserDAO {
     public List<User> getUserByEmail(String email) {
         RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
         return jdbcTemplate.query("SELECT * FROM users WHERE email = ?", rowMapper, email);
+    }
+
+    public User getUserById(long id) {
+        RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
+        return jdbcTemplate.query("SELECT * FROM users WHERE id = ?", rowMapper, id).get(0);
     }
 
     private User mapUser(ResultSet rs) throws SQLException {

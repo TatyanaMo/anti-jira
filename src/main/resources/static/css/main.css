@@ -122,3 +122,29 @@ input::placeholder {
     background-color: #ccc;
 }
 
+.user-header {
+}
+
+.user-card {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    background-color: #999;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.user-name{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+

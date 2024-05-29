@@ -3,6 +3,7 @@ package com.app.controllers;
 import com.app.services.FileServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,5 +25,16 @@ public class FileController {
     public String storeNewFile(@RequestParam("file")MultipartFile file) throws IOException {
         fileServices.storeNewFile(file);
         return "redirect:/";
+    }
+
+    @GetMapping("/all-files")
+    public String getAllFilesPage(Model model) {
+        model.addAttribute("files", fileServices.getAllFiles());
+        return "allFiles";
+    }
+
+    @PostMapping("/avatar-upload")
+    public String storeUserAvatar(@RequestParam("avatar") MultipartFile avatar) {
+        return"redirect:/";
     }
 }
