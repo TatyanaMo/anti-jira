@@ -1,5 +1,5 @@
 input {
-    color: #3F51B5;
+    color: #9ba7ea;
 }
 
 input::placeholder {
@@ -140,11 +140,68 @@ input::placeholder {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    cursor: pointer;
 }
 
-.user-name{
+.user-name {
     display: flex;
     align-items: center;
     margin-left: 10px;
 }
+
+.modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close-modal-btn {
+    color: #84bdf2;
+    font-size: 35px;
+    cursor: pointer;
+    font-family: cursive;
+    display: flex;
+    justify-content: end;
+    padding-right: 15px;
+    backdrop-filter: blur(3px);
+}
+
+.upload-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.upload-btn {
+    border: 1px solid #80b5e6;
+    background: transparent;
+    border-radius: 5px;
+    height: 30px;
+    width: 90px;
+}
+
+.file-input {
+    display: none;
+}
+
+.custom-file-input {
+    color: #84bdf2;
+    font-family: cursive;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.avatar-img {
+     width: 100%;
+}
+
+
+
 

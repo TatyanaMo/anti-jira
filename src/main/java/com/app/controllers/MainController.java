@@ -24,6 +24,7 @@ public class MainController {
         model.addAttribute("projects", projectServices.getAllProjects());
         model.addAttribute("tickets", ticketServices.getLastTickets(30));
         model.addAttribute("username", userServices.getCurrentUser().getFirstName());
+        model.addAttribute("avatarUrl", userServices.getCurrentUser().getAvatarPath());
         return "homePage";
     }
 

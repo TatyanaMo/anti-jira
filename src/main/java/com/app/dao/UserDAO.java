@@ -47,6 +47,7 @@ public class UserDAO {
         user.setLastName(rs.getString("last_name"));
         user.setEmail(rs.getString("email"));
         user.setPassword(rs.getString("password"));
+        user.setAvatarPath(rs.getString("avatar_url"));
 
         return user;
     }

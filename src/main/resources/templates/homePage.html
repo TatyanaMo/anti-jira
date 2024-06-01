@@ -5,40 +5,54 @@
   <title>Anti JIRA</title>
   <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+  <script th:src="@{/js/main.js}"></script>
 </head>
-  <body>
-    <div class="content">
-      <div class="menu">
-        <div th:each="project : ${projects}" class="project">
-          <a th:href="'/project/' + ${project.id}" th:text="${project.name}" class="project-link"></a>
+<body>
+<div class="content">
+  <div class="menu">
+    <div th:each="project : ${projects}" class="project">
+      <a th:href="'/project/' + ${project.id}" th:text="${project.name}" class="project-link"></a>
+    </div>
+  </div>
+  <div class="right-content-block">
+    <div class="user-header">
+      <div class="user-card">
+        <div th:if="${avatarUrl == null}" class="avatar" th:text="${#strings.substring(username, 0, 1)}" onclick="openModal();"></div>
+        <div th:if="${avatarUrl != null}" class="avatar" onclick="openModal();">
+          <img th:src="'/files/' + ${avatarUrl}" class="avatar-img">
         </div>
-      </div>
-      <div class="right-content-block">
-        <div class="user-header">
-            <div class="user-card">
-              <div class="avatar" th:text="${#strings.substring(username, 0, 1)}"></div>
-              <div class="user-name" th:text="'Welcome, ' + ${username} + '!'"></div>
-            </div>
-        </div>
-          <div class="right-header">
-            <div class="button-block"><a href="/new-project" class="link-button">Create Project</a></div>
-            <div class="button-block"><a href="/new-ticket" class="link-button">Create Ticket</a></div>
-          </div>
-          <div class="right-content">
-            <div class="tickets-header">
-              <div class="ticket-id header">ID</div>
-              <div class="ticket-summary header">Summary</div>
-              <div class="ticket-reporter header">Reporter</div>
-            </div>
-            <div th:each="ticket : ${tickets}" class="ticket">
-              <div th:text="${ticket.id}" class="ticket-id"></div>
-              <a th:href="'/ticket/' + ${ticket.id}">
-                <div th:text="${ticket.summary}" class="ticket-summary"></div>
-              </a>
-              <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}" class="ticket-reporter"></div>
-            </div>
-          </div>
+        <div class="user-name" th:text="'Welcome, ' + ${username} + '!'"></div>
       </div>
     </div>
-  </body>
+    <div class="right-header">
+      <div class="button-block"><a href="/new-project" class="link-button">Create Project</a></div>
+      <div class="button-block"><a href="/new-ticket" class="link-button">Create Ticket</a></div>
+    </div>
+    <div class="right-content">
+      <div class="tickets-header">
+        <div class="ticket-id header">ID</div>
+        <div class="ticket-summary header">Summary</div>
+        <div class="ticket-reporter header">Reporter</div>
+      </div>
+      <div th:each="ticket : ${tickets}" class="ticket">
+        <div th:text="${ticket.id}" class="ticket-id"></div>
+        <a th:href="'/ticket/' + ${ticket.id}">
+          <div th:text="${ticket.summary}" class="ticket-summary"></div>
+        </a>
+        <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}" class="ticket-reporter"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modal" class="modal">
+  <div class="close-modal-btn" onclick="closeModal();">x</div>
+  <div class="upload-form">
+    <form action="/avatar-upload" method="POST" enctype="multipart/form-data">
+      <label for="file" class="custom-file-input">Select File</label>
+      <input id="file" type="file" name="avatar" class="file-input">
+      <input type="submit" value="Upload" class="upload-btn">
+    </form>
+  </div>
+</div>
+</body>
 </html>
