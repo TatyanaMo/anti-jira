@@ -1,0 +1,5 @@
+<div class="menu" th:fragment="side-menu">
+  <div th:each="project : ${projects}" class="project">
+    <a th:href="'/project/' + ${project.id}" th:text="${project.name}" class="project-link"></a>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="user-header" th:fragment="user-header">
+  <div class="user-card">
+    <div class="bookmarks">
+      <div><img src="/img/bookmark.png" class="bookmarks-counter-ico"></div>
+      <div id="bookmarks-count" class="bookmarks-counter">0</div>
+    </div>
+    <div th:if="${avatarUrl == null}" class="avatar" th:text="${#strings.substring(username, 0, 1)}" onclick="openModal();"></div>
+    <div th:if="${avatarUrl != null}" class="avatar" onclick="openModal();">
+      <img th:src="'/files/' + ${avatarUrl}" class="avatar-img">
+    </div>
+    <div class="user-name" th:text="'Welcome, ' + ${username} + '!'"></div>
+  </div>
+</div>
+
+<div id="modal" class="modal" th:fragment="avatar-modal">
+  <div class="close-modal-btn" onclick="closeModal();">x</div>
+  <div class="upload-form">
+    <form action="/avatar-upload" method="POST" enctype="multipart/form-data">
+      <label for="file" class="custom-file-input">Select File</label>
+      <input id="file" type="file" name="avatar" class="file-input">
+      <input type="submit" value="Upload" class="upload-btn">
+    </form>
+  </div>
+</div>

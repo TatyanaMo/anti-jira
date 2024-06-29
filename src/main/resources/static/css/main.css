@@ -103,8 +103,9 @@ input::placeholder {
     font-size: 18px;
 }
 
-.ticket-id {
+.tickets-id {
     width: 40px;
+    margin-left: 15px;
 }
 
 .ticket-summary {
@@ -199,7 +200,30 @@ input::placeholder {
 }
 
 .avatar-img {
-     width: 100%;
+    width: 100%;
+}
+
+.bookmark-header {
+    width: 20px;
+}
+
+.bookmark-ico {
+    width: 20px;
+    cursor: pointer;
+}
+
+.bookmarks {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.bookmarks-counter-ico {
+    width: 20px;
+}
+
+.bookmarks-counter {
+    \margin-left: 3px;
 }
 
 

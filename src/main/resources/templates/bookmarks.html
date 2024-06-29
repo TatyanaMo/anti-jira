@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Anti JIRA</title>
+  <title>Anti JIRA :: Bookmarks</title>
   <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -20,22 +20,18 @@
     <div class="right-content">
       <div class="tickets-header">
         <div class="bookmark-header"></div>
-        <div class="ticket-id header">ID</div>
-        <div class="ticket-summary header">Summary</div>
-        <div class="ticket-reporter header">Reporter</div>
+        <div class="tickets-id header">ID</div>
+        <div class="tickets-summary header">Summary</div>
+        <div class="tickets-reporter header">Reporter</div>
       </div>
-      <div th:each="ticket : ${tickets}" class="ticket">
-        <div><img src="/img/bookmark.png" class="bookmark-ico" th:onclick="|addBookmark('${ticket.id}');|"></div>
-        <div th:text="${ticket.id}" class="ticket-id"></div>
-        <a th:href="'/ticket/' + ${ticket.id}">
-          <div th:text="${ticket.summary}" class="ticket-summary"></div>
-        </a>
-        <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}" class="ticket-reporter"></div>
-      </div>
+      <div id="bookmark-list"></div>
     </div>
   </div>
 </div>
 <div th:replace="fragments/header :: 'avatar-modal'"></div>
-<script>getBookmarksCount();</script>
+<script>
+  getBookmarksCount();
+  getBookmarks();
+</script>
 </body>
 </html>

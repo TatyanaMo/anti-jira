@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
@@ -18,20 +18,7 @@
       <div class="button-block"><a href="/new-ticket" class="link-button">Create Ticket</a></div>
     </div>
     <div class="right-content">
-      <div class="tickets-header">
-        <div class="bookmark-header"></div>
-        <div class="ticket-id header">ID</div>
-        <div class="ticket-summary header">Summary</div>
-        <div class="ticket-reporter header">Reporter</div>
-      </div>
-      <div th:each="ticket : ${tickets}" class="ticket">
-        <div><img src="/img/bookmark.png" class="bookmark-ico" th:onclick="|addBookmark('${ticket.id}');|"></div>
-        <div th:text="${ticket.id}" class="ticket-id"></div>
-        <a th:href="'/ticket/' + ${ticket.id}">
-          <div th:text="${ticket.summary}" class="ticket-summary"></div>
-        </a>
-        <div th:text="${ticket.user.firstName + ' ' + ticket.user.lastName}" class="ticket-reporter"></div>
-      </div>
+
     </div>
   </div>
 </div>

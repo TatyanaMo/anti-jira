@@ -4,8 +4,8 @@ public class Ticket {
     private long id;
     private String summary;
     private String description;
-    //private long reporterId;
-    private User user;
+    //    private long reporterId;
+    private User user; //reporter
     private long projectId;
 
     public long getId() {
@@ -31,14 +31,6 @@ public class Ticket {
     public void setDescription(String description) {
         this.description = description;
     }
-
-//    public long getReporterId() {
-//        return reporterId;
-//    }
-//
-//    public void setReporterId(long reporterId) {
-//        this.reporterId = reporterId;
-//    }
 
 
     public User getUser() {
